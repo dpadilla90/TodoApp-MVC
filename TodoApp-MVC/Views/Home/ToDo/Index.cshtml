@@ -1,0 +1,13 @@
+@model List<TodoApp.Models.ToDo>
+
+<h1>ToDo List</h1>
+
+<a asp-controller="ToDo" asp-action="AddToDo">Add New ToDo</a>
+
+<ul>
+    @foreach (var todo in Model)
+    {
+        <li>@todo.Title - @todo.Description (@todo.CompletionDate)</li>
+        <a asp-controller="ToDo" asp-action="MarkAsCompleted" asp-route-id="@todo.Id">Mark as Completed</a>
+    }
+</ul>
