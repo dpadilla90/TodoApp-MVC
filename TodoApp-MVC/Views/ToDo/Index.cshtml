@@ -1,13 +1,21 @@
 @model List<TodoApp.Models.ToDo>
 
+<!-- Header with the title for the ToDo List page -->
 <h1>ToDo List</h1>
 
+<!-- Link to navigate to the "AddToDo" action in the "ToDo" controller to add a new ToDo item -->
 <a asp-controller="ToDo" asp-action="AddToDo">Add New ToDo</a>
 
+<!-- Unordered list to display the list of ToDo items -->
 <ul>
+    <!-- Loop through each ToDo item in the Model and display its properties -->
     @foreach (var todo in Model)
     {
+        <!-- List item displaying the Title, Description, and CompletionDate of each ToDo item -->
         <li>@todo.Title - @todo.Description (@todo.CompletionDate)</li>
+
+        <!-- Link to navigate to the "MarkAsCompleted" action in the "ToDo" controller to mark the ToDo item as completed -->
+        <!-- The link includes the id of the current ToDo item as a route parameter -->
         <a asp-controller="ToDo" asp-action="MarkAsCompleted" asp-route-id="@todo.Id">Mark as Completed</a>
     }
 </ul>

@@ -1,19 +1,29 @@
 @model TodoApp.Models.ToDo
 
+<!-- Header with the title for the Add ToDo page -->
 <h2>Add ToDo</h2>
 
+<!-- Form for adding a new ToDo item, posting the data to the "AddToDo" action in the "ToDo" controller -->
 <form asp-controller="ToDo" asp-action="AddToDo" method="post">
+    <!-- Form group for the Title field -->
     <div class="form-group">
         <label asp-for="Title">Title</label>
+        <!-- Input field for the Title property, using the "Title" label and "form-control" CSS class -->
         <input asp-for="Title" class="form-control" />
+        <!-- Span element to display validation error messages for the Title field -->
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
+    <!-- Form group for the Description field -->
     <div class="form-group">
         <label asp-for="Description">Description</label>
+        <!-- Input field for the Description property, using the "Description" label and "form-control" CSS class -->
         <input asp-for="Description" class="form-control" />
+        <!-- Span element to display validation error messages for the Description field -->
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
+    <!-- Form group for the submit button -->
     <div class="form-group">
+        <!-- Submit button for the form, with "Add" as the displayed text and "btn btn-primary" as the CSS class -->
         <input type="submit" value="Add" class="btn btn-primary" />
     </div>
 </form>
